@@ -32,12 +32,16 @@
 "state": {
 "type": "string"
 },
-"lat": {
-"type": "string"
-},
-"long": {
-"type": "string"
-}
+  "lat": {
+    "type": "string",
+    "minLength": 1,
+    "maxLength": 3
+  },
+  "long": {
+    "type": "string",
+    "minLength": 1,
+    "maxLength": 3
+  }
 },
 "required": [
 "lat",
