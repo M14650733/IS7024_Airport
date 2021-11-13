@@ -98,7 +98,7 @@ namespace TouristAttractionsJSON.Pages
                                     sunset = RiseSet.Results.Sunset;
                                     var roundedLat = Math.Round(field.Latitude, 5);
                                     var roundedLong = Math.Round(field.Longitude, 5);
-
+                                    //Have Dictionary to load data
                                     t = welcomeWeather.Data[0].Temp;
 
                                     items.Add(new Item { lat = roundedLat, lon = roundedLong, country = field.CountryEn, name = field.NameEn, tem=t, sr=sunrise, ss=sunset});
