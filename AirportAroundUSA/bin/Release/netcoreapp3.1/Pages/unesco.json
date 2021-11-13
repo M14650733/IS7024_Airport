@@ -1,0 +1,297 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/Welcome",
+  "definitions": {
+    "Welcome": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "nhits": {
+          "type": "integer"
+        },
+        "parameters": {
+          "$ref": "#/definitions/Parameters"
+        },
+        "records": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Record"
+          }
+        },
+        "facet_groups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FacetGroup"
+          }
+        }
+      },
+      "required": [
+        "facet_groups",
+        "nhits",
+        "parameters",
+        "records"
+      ],
+      "title": "Welcome"
+    },
+    "FacetGroup": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "facets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Facet"
+          }
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "facets",
+        "name"
+      ],
+      "title": "FacetGroup"
+    },
+    "Facet": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "path": {
+          "type": "string"
+        },
+        "state": {
+          "$ref": "#/definitions/State"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "count",
+        "name",
+        "path",
+        "state"
+      ],
+      "title": "Facet"
+    },
+    "Parameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "dataset": {
+          "$ref": "#/definitions/Dataset"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "rows": {
+          "type": "integer"
+        },
+        "start": {
+          "type": "integer"
+        },
+        "format": {
+          "type": "string"
+        },
+        "facet": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "dataset",
+        "facet",
+        "format",
+        "rows",
+        "start",
+        "timezone"
+      ],
+      "title": "Parameters"
+    },
+    "Record": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "datasetid": {
+          "$ref": "#/definitions/Dataset"
+        },
+        "recordid": {
+          "type": "string"
+        },
+        "fields": {
+          "$ref": "#/definitions/Fields"
+        },
+        "geometry": {
+          "$ref": "#/definitions/Geometry"
+        },
+        "record_timestamp": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "datasetid",
+        "fields",
+        "geometry",
+        "record_timestamp",
+        "recordid"
+      ],
+      "title": "Record"
+    },
+    "Fields": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "category": {
+          "$ref": "#/definitions/Category"
+        },
+        "short_description_en": {
+          "type": "string"
+        },
+        "continent_fr": {
+          "$ref": "#/definitions/ContinentFr"
+        },
+        "name_fr": {
+          "type": "string"
+        },
+        "continent_en": {
+          "$ref": "#/definitions/ContinentEn"
+        },
+        "justification_fr": {
+          "type": "string"
+        },
+        "country_en": {
+          "type": "string"
+        },
+        "longitude": {
+          "type": "number"
+        },
+        "justification_en": {
+          "type": "string"
+        },
+        "short_description_fr": {
+          "type": "string"
+        },
+        "date_inscribed": {
+          "type": "string",
+          "format": "date"
+        },
+        "country_fr": {
+          "type": "string"
+        },
+        "area_hectares": {
+          "type": "number"
+        },
+        "latitude": {
+          "type": "number"
+        },
+        "name_en": {
+          "type": "string"
+        },
+        "geographical_coordinates": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "danger_list": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "category",
+        "continent_en",
+        "continent_fr",
+        "country_en",
+        "country_fr",
+        "date_inscribed",
+        "geographical_coordinates",
+        "latitude",
+        "longitude",
+        "name_en",
+        "name_fr",
+        "short_description_en",
+        "short_description_fr"
+      ],
+      "title": "Fields"
+    },
+    "Geometry": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/Type"
+        },
+        "coordinates": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        }
+      },
+      "required": [
+        "coordinates",
+        "type"
+      ],
+      "title": "Geometry"
+    },
+    "State": {
+      "type": "string",
+      "enum": [
+        "displayed"
+      ],
+      "title": "State"
+    },
+    "Dataset": {
+      "type": "string",
+      "enum": [
+        "world-heritage-unesco-list"
+      ],
+      "title": "Dataset"
+    },
+    "Category": {
+      "type": "string",
+      "enum": [
+        "Cultural",
+        "Natural",
+        "Mixed"
+      ],
+      "title": "Category"
+    },
+    "ContinentEn": {
+      "type": "string",
+      "enum": [
+        "Europe and North America",
+        "Arab States",
+        "Asia and the Pacific",
+        "Africa",
+        "Latin America and the Caribbean"
+      ],
+      "title": "ContinentEn"
+    },
+    "ContinentFr": {
+      "type": "string",
+      "enum": [
+        "Europe et Amérique du nord",
+        "États arabes",
+        "Asie et pacifique",
+        "Afrique",
+        "Amérique latine et Caraïbes"
+      ],
+      "title": "ContinentFr"
+    },
+    "Type": {
+      "type": "string",
+      "enum": [
+        "Point"
+      ],
+      "title": "Type"
+    }
+  }
+}

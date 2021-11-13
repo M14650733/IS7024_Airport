@@ -1,0 +1,80 @@
+﻿@page
+@model TouristAttractionsJSON.Pages.TouristAttractionsSitesModel
+@{
+    ViewData["Title"] = "World Heritage Sites";
+    List<TouristAttractionsJSON.Pages.Item> items = (List<TouristAttractionsJSON.Pages.Item>)ViewData["Items"];
+    
+}
+
+
+<form action="http://api.travelpayouts.com/data/en/airports.json" method="GET" style="margin-top: 50px;">
+    <div class="form-group">
+    <label class="control-label" for="UnescoCountry">Search airports around the USA</label>
+       
+    <select class="form-control" name="UnescoCountry" id="UnescoCountry">
+        <option value=""></option>
+        <option value="New York">New York</option>
+        <option value="Chicago">Chicago</option>
+        <option value="Cincinnati">Cincinnati</option>
+        <option value="Manhattan">Manhattan</option>
+        <option value="Albania">Albania</option>
+        <option value="NYC">NYC</option>
+        <option value="California">California</option>
+        <option value="Indiana">Indiana</option>
+        <option value="Philadelphia">Philadelphia</option>
+    </select>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Search" class="btn btn-sm btn-primary" />
+    </div>
+</form>
+
+@if (Model.IsSearchEmpty)
+{
+    <div class="row alert alert-warning">
+        Enter atleast one field to begin search!
+    </div>
+}
+
+else if (Model.IsSearchCountry)
+{
+    if (Model.IsSearchValid)
+    {
+        <table class="table table-dark">
+            <tr>
+                <th>Name of Unesco</th>
+                <th>Country</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+                <th>Temperature</th>
+                <th>Sunrise</th>
+                <th>Sunset</th>
+            </tr>
+            @{
+                foreach (TouristAttractionsJSON.Pages.Item item in items)
+                {
+                    string temp = item.tem.ToString() + "°C";
+                    <tr>
+
+                        <td>@item.name</td>
+                        <td>@item.country</td>
+                        <td>@item.lat</td>
+                        <td>@item.lon</td>
+                        <td>@temp</td>
+                        <td>@item.sr</td>
+                        <td>@item.ss</td>
+                    </tr>
+                }
+            }
+        </table>
+    }
+    else
+
+    {
+        <div class="row alert alert-warning">
+            No Unesco sites present for this search. Please try again with different country
+        </div>
+    }
+
+}

@@ -1,0 +1,282 @@
+{
+"$schema": "http://json-schema.org/draft-06/schema#",
+"$ref": "#/definitions/Welcome",
+"definitions": {
+"Welcome": {
+"type": "object",
+"additionalProperties": false,
+"properties": {
+"loc": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/LOC"
+}
+},
+"state": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/State"
+}
+}
+},
+"required": [
+"loc",
+"state"
+],
+"title": "Welcome"
+},
+"LOC": {
+"type": "object",
+"additionalProperties": false,
+"properties": {
+"state": {
+"type": "string"
+},
+"lat": {
+"type": "string"
+},
+"long": {
+"type": "string"
+}
+},
+"required": [
+"lat",
+"long",
+"state"
+],
+"title": "LOC"
+},
+"State": {
+"type": "object",
+"additionalProperties": false,
+"properties": {
+"id": {
+"type": "string",
+"format": "integer"
+},
+"name": {
+"type": "string"
+},
+"capital": {
+"type": "string"
+},
+"about": {
+"type": "string"
+},
+"climate": {
+"type": "string"
+},
+"history": {
+"type": "string"
+},
+"time": {
+"type": "string"
+},
+"food": {
+"type": "string"
+},
+"img": {
+"type": "array",
+"items": {
+"type": "string",
+"format": "uri",
+"qt-uri-protocols": [
+"https"
+],
+"qt-uri-extensions": [
+".jpeg",
+".jpg",
+".png"
+]
+}
+},
+"products": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/Product"
+}
+},
+"tourist": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/Tourist"
+}
+}
+},
+"required": [
+"about",
+"capital",
+"climate",
+"food",
+"history",
+"id",
+"img",
+"name",
+"time",
+"tourist"
+],
+"title": "State"
+},
+"Product": {
+"type": "object",
+"additionalProperties": false,
+"properties": {
+"name": {
+"type": "string"
+},
+"description": {
+"type": "string"
+},
+"image": {
+"type": "string",
+"format": "uri",
+"qt-uri-protocols": [
+"http",
+"https"
+],
+"qt-uri-extensions": [
+".jpeg",
+".jpg",
+".png"
+]
+},
+"category": {
+"$ref": "#/definitions/Category"
+}
+},
+"required": [
+"description",
+"image",
+"name"
+],
+"title": "Product"
+},
+"Tourist": {
+"type": "object",
+"additionalProperties": false,
+"properties": {
+"name": {
+"type": "string"
+},
+"info": {
+"type": "string"
+},
+"images": {
+"type": "string",
+"format": "uri",
+"qt-uri-protocols": [
+"http",
+"https"
+],
+"qt-uri-extensions": [
+".jpeg",
+".jpg",
+".png"
+]
+},
+"location": {
+"type": "string",
+"qt-uri-protocols": [
+"https"
+],
+"qt-uri-extensions": [
+".0321918",
+".034916",
+".0595248",
+".0643723",
+".0668943",
+".0708759",
+".0709903",
+".1094597",
+".1152006",
+".1258083",
+".1319953",
+".153516",
+".1642478",
+".1734033",
+".1812187",
+".1887145",
+".1916497",
+".2333743",
+".2432527",
+".2673041",
+".2676116",
+".2678137",
+".2691006",
+".3149625",
+".3212781",
+".3234037",
+".3433139",
+".3440792",
+".3449114",
+".3843721",
+".4321825",
+".4334066",
+".4354042",
+".4542033",
+".4579436",
+".4601581",
+".4751945",
+".4762124",
+".4886275",
+".4937634",
+".5362526",
+".5519144",
+".5659633",
+".5992925",
+".6141396",
+".628106",
+".6293059",
+".6369415",
+".6450926",
+".6477342",
+".6558242",
+".6669324",
+".6871069",
+".7032521",
+".7224297",
+".7478028",
+".7480274",
+".7746603",
+".7872709",
+".7898023",
+".8187557",
+".8241507",
+".8310607",
+".8513454",
+".8567437",
+".8597406",
+".8705888",
+".8764849",
+".8801088",
+".9091436",
+".9116041",
+".9648753",
+".9684562",
+".9709978",
+".9811407",
+".9873719",
+".9875565"
+]
+}
+},
+"required": [
+"images",
+"info",
+"location",
+"name"
+],
+"title": "Tourist"
+},
+"Category": {
+"type": "string",
+"enum": [
+"Jewellery",
+"Grocery",
+"Home-Decor",
+"Clothing & Accessories"
+],
+"title": "Category"
+}
+}
+}
