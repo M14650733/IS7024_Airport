@@ -1,127 +1,112 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Logging;
-using QuickType;
-using QuickTypeWeather;
-using SunriseSunset;
-using Newtonsoft.Json.Linq;
-using Newtonsoft.Json.Schema;
 using Microsoft.Extensions.Configuration;
-
-
+using System.Net.Http;
+using System.Text.Json.Serialization;
+using System.Linq;
+using System;
 
 namespace TouristAttractionsJSON.Pages
 {
 
-    public class Item
+    public class Airport
     {
+        [JsonPropertyName("city_code")]
+        public string CityCode { get; set; }
+        
+        [JsonPropertyName("country_code")]
+        public string CountryCode { get; set; }
 
-        public double lat { get; set; }
-        public double lon { get; set; }
+        public string CityName { get; set; }
 
-        public string country { get; set; }
+        public string Name
+        {
+            get
+            {
+                return this.NameTranslations["en"];
+            }
+        }
 
-        public string name { get; set; }
-
-        public double tem { get; set; }
-
-        public string sr { get; set; }
-        public string ss { get; set; }
+        [JsonPropertyName("name_translations")]
+        public Dictionary<string, string> NameTranslations { get; set; }
 
     }
-    public class TouristAttractionsSitesModel : PageModel
+
+    public class City
     {
-        private readonly IConfiguration _configuration;
-        public TouristAttractionsSitesModel(IConfiguration configuration)
+        public string Name
         {
-            _configuration = configuration;
-        }
-        [BindProperty]
-        public string UnescoCountry { get; set; }
-
-        public bool IsSearchCountry { get; set; }
-        public bool IsSearchValid = true;
-
-        
-        public bool IsSearchEmpty = false;
-
-        public void OnGet()
-        {
-            IsSearchCountry = false;
-        }
-        public void OnPost()
-        {
-            try
+            get
             {
-                if (string.IsNullOrEmpty(UnescoCountry))
-                {
-                    IsSearchEmpty = true;
-                }
-                else
-                {
-                    string CountrySearched = UnescoCountry.ToLower();
+                return this.NameTranslations["en"];
+            }
+        }
 
-                    using (var webClient = new WebClient())
+        [JsonPropertyName("name_translations")]
+        public Dictionary<string, string> NameTranslations { get; set; }
+
+        [JsonPropertyName("code")]
+        public string Code { get; set; }
+    }
+    public class AirportsInUSModel : PageModel
+    {
+        public List<Airport> Airports { get; set; }
+
+        public string SelectedCity { get; set; }
+
+        public async Task OnGetAsync(string? name)
+        {
+            this.SelectedCity = name;
+            this.Airports = await getAirports(name ?? "");
+        }
+
+        public async Task<List<City>> getCities()
+        {
+            var url = "https://api.travelpayouts.com/data/en/cities.json";
+
+            HttpClient client = new HttpClient();
+            var cityData = await client.GetAsync(url);
+
+            var cityDataString = await cityData.Content.ReadAsStringAsync();
+            var cities = JsonSerializer.Deserialize<List<City>>(cityDataString);
+            return cities;
+        }
+
+        public async Task<List<Airport>> getAirports(string cityName = "")
+        {
+            var url = "https://api.travelpayouts.com/data/en/airports.json";
+            
+            HttpClient client = new HttpClient();
+            var data = await client.GetAsync(url);
+
+            var dataString = await data.Content.ReadAsStringAsync();
+            var airports = JsonSerializer.Deserialize<List<Airport>>(dataString);
+            var cities = await getCities();
+            return airports.Where(_ => 
+            _.CountryCode.Equals("US", StringComparison.CurrentCultureIgnoreCase)
+            )
+                .AsParallel()
+                .WithDegreeOfParallelism(10)
+                .Select(airport => {
+                    var cityCode = airport.CityCode;
+                    var city = cities.Where(_ => _.Code.Equals(cityCode, StringComparison.CurrentCultureIgnoreCase))
+                    .FirstOrDefault();
+                    
+                    if(city != null)
                     {
-
-                        string key = System.IO.File.ReadAllText("TouristAPIKey.txt");
-
-
-                        String jsonString = webClient.DownloadString("https://github.com/shivika24/tourism-project/blob/master/db.json");
-                        JSchema schema = JSchema.Parse(System.IO.File.ReadAllText("AirportSchema.json"));
-                        JObject jsonObject = JObject.Parse(jsonString);
-                        QuickType.Welcome welcome = QuickType.Welcome.FromJson(jsonString);
-                        List<Item> items = new List<Item>();
-                        double t;
-                        string sunrise;
-                        string sunset;
-                        for (int i = 0; i < 1052; i++)
-                        {
-                            Fields field = welcome.Records[i].Fields;
-                            if (CountrySearched == field.CountryEn.ToLower())
-                            {
-
-                                {
-                                    string weatherString = webClient.DownloadString("https://github.com/shivika24/tourism-project/blob/master/db.json" + field.Latitude + "&lon=" + field.Longitude + "&key=" + key + "&include=minutely");
-
-                                    QuickTypeWeather.Welcome welcomeWeather = QuickTypeWeather.Welcome.FromJson(weatherString);
-
-                                    string SunriseSunsetString = webClient.DownloadString("https://github.com/shivika24/tourism-project/blob/master/db.json" + field.Latitude + "&lng=" + field.Longitude);
-                                    SunriseSunset.HighFive RiseSet = SunriseSunset.HighFive.FromJson(SunriseSunsetString);
-                                    sunrise = RiseSet.Results.Sunrise;
-                                    sunset = RiseSet.Results.Sunset;
-                                    var roundedLat = Math.Round(field.Latitude, 5);
-                                    var roundedLong = Math.Round(field.Longitude, 5);
-
-                                    t = welcomeWeather.Data[0].Temp;
-
-                                    items.Add(new Item { lat = roundedLat, lon = roundedLong, country = field.CountryEn, name = field.NameEn, tem=t, sr=sunrise, ss=sunset});
-
-                                };
-                                if (items.Count != 0)
-                                    ViewData["Items"] = items;
-                                else
-                                    ViewData["IsSearchValid"] = false;
-                            }
-
-
-                        }
+                        airport.CityName = city.Name;
                     }
 
-                    IsSearchCountry = true;
+                    return airport;
+                }).Where(_ => _.CityName.Trim().Contains(cityName.Trim(), StringComparison.CurrentCultureIgnoreCase))
+                .ToList();
+        }
 
-                }
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("Exception occured while searching the Usites");
-            }
+        public void OnPost()
+        {
         }
     }
 }
