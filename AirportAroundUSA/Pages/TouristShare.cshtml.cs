@@ -35,9 +35,17 @@ namespace TouristAttractionsJSON.Pages
 
         private string getData(string url)
         {
-            using (WebClient webClient = new WebClient())
+            try
             {
-                return webClient.DownloadString(url);
+                using (WebClient webClient = new WebClient())
+                {
+                    return webClient.DownloadString(url);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception while getting Weather data", e.Message);
+                return null;
             }
         }
     }
