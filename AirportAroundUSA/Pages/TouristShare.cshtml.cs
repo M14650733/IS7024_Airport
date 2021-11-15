@@ -20,7 +20,7 @@ namespace TouristAttractionsJSON.Pages
 
 
 
-            string weatherDetails = getData(url);
+            string weatherDetails = GetData(url);
 
 
 
@@ -33,11 +33,19 @@ namespace TouristAttractionsJSON.Pages
 
 
 
-        private string getData(string url)
+        private string GetData(string url)
         {
-            using (WebClient webClient = new WebClient())
+            try
             {
-                return webClient.DownloadString(url);
+                using (WebClient webClient = new WebClient())
+                {
+                    return webClient.DownloadString(url);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception while getting Weather data", e.Message);
+                return null;
             }
         }
     }

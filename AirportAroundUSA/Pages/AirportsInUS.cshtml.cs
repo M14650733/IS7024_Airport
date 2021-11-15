@@ -22,17 +22,17 @@ namespace TouristAttractionsJSON.Pages
     public class Item
     {
 
-        public double lat { get; set; }
-        public double lon { get; set; }
+        public double Lat { get; set; }
+        public double Lon { get; set; }
 
-        public string country { get; set; }
+        public string Country { get; set; }
 
-        public string name { get; set; }
+        public string Name { get; set; }
 
-        public double tem { get; set; }
+        public double Tem { get; set; }
 
-        public string sr { get; set; }
-        public string ss { get; set; }
+        public string Sr { get; set; }
+        public string Ss { get; set; }
 
     }
     public class TouristAttractionsSitesModel : PageModel

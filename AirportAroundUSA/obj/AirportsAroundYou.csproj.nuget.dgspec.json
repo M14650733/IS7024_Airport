@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\15715\\Desktop\\AirportAroundUSA\\IS7024\\IS7024-Project\\AirportAroundUSA\\AirportAroundUSA\\AirportsAroundYou.csproj": {}
+    "C:\\Users\\Ayesha Marupudi\\Desktop\\Courses\\7024 XML and Web services\\CodeReview1\\AirportAroundUSA\\AirportsAroundYou.csproj": {}
   },
   "projects": {
-    "C:\\Users\\15715\\Desktop\\AirportAroundUSA\\IS7024\\IS7024-Project\\AirportAroundUSA\\AirportAroundUSA\\AirportsAroundYou.csproj": {
+    "C:\\Users\\Ayesha Marupudi\\Desktop\\Courses\\7024 XML and Web services\\CodeReview1\\AirportAroundUSA\\AirportsAroundYou.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\15715\\Desktop\\AirportAroundUSA\\IS7024\\IS7024-Project\\AirportAroundUSA\\AirportAroundUSA\\AirportsAroundYou.csproj",
+        "projectUniqueName": "C:\\Users\\Ayesha Marupudi\\Desktop\\Courses\\7024 XML and Web services\\CodeReview1\\AirportAroundUSA\\AirportsAroundYou.csproj",
         "projectName": "AirportsAroundYou",
-        "projectPath": "C:\\Users\\15715\\Desktop\\AirportAroundUSA\\IS7024\\IS7024-Project\\AirportAroundUSA\\AirportAroundUSA\\AirportsAroundYou.csproj",
-        "packagesPath": "C:\\Users\\15715\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\15715\\Desktop\\AirportAroundUSA\\IS7024\\IS7024-Project\\AirportAroundUSA\\AirportAroundUSA\\obj\\",
+        "projectPath": "C:\\Users\\Ayesha Marupudi\\Desktop\\Courses\\7024 XML and Web services\\CodeReview1\\AirportAroundUSA\\AirportsAroundYou.csproj",
+        "packagesPath": "C:\\Users\\Ayesha Marupudi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Ayesha Marupudi\\Desktop\\Courses\\7024 XML and Web services\\CodeReview1\\AirportAroundUSA\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\15715\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Ayesha Marupudi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -71,7 +71,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
