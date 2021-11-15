@@ -20,7 +20,7 @@ namespace TouristAttractionsJSON.Pages
 
 
 
-            string weatherDetails = getData(url);
+            string weatherDetails = GetData(url);
 
 
 
@@ -33,7 +33,7 @@ namespace TouristAttractionsJSON.Pages
 
 
 
-        private string getData(string url)
+        private string GetData(string url)
         {
             try
             {
