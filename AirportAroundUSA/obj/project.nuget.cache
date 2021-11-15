@@ -1,13 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "BQfzGf7Ziz30eNIDnFQx8o18VZYY7OWrcIHkrQv3RZfA+wmDHRKM4B+jH0kpSAwzryLaexlkd2cvFr3KbGxJ9Q==",
+  "dgSpecHash": "reUi3WXjhH6CviSe2//TnUbrdZmhnS78gA3cs29a0elnF29BbI2bmBrBYc6m/kT8r+zuA1F80k74dG4HK/BveA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Angela\\3D Objects\\New folder\\Module 7 comprehensive HW work.xlsx\\AirportAroundUSA\\AirportsAroundYou.csproj",
+  "projectFilePath": "C:\\Users\\angel\\OneDrive\\Escritorio\\CR\\IS7024_Airport\\AirportAroundUSA\\AirportsAroundYou.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Angela\\.nuget\\packages\\documentformat.openxml\\2.14.0\\documentformat.openxml.2.14.0.nupkg.sha512",
-    "C:\\Users\\Angela\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
-    "C:\\Users\\Angela\\.nuget\\packages\\newtonsoft.json.schema\\3.0.14\\newtonsoft.json.schema.3.0.14.nupkg.sha512",
-    "C:\\Users\\Angela\\.nuget\\packages\\system.io.packaging\\4.7.0\\system.io.packaging.4.7.0.nupkg.sha512"
+    "C:\\Users\\angel\\.nuget\\packages\\documentformat.openxml\\2.14.0\\documentformat.openxml.2.14.0.nupkg.sha512",
+    "C:\\Users\\angel\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\angel\\.nuget\\packages\\newtonsoft.json.schema\\3.0.14\\newtonsoft.json.schema.3.0.14.nupkg.sha512",
+    "C:\\Users\\angel\\.nuget\\packages\\system.io.packaging\\4.7.0\\system.io.packaging.4.7.0.nupkg.sha512",
+    "C:\\Users\\angel\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.21\\microsoft.netcore.app.host.win-x64.3.1.21.nupkg.sha512",
+    "C:\\Users\\angel\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
+    "C:\\Users\\angel\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\angel\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512"
   ],
   "logs": []
 }

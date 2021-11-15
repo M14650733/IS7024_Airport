@@ -73,10 +73,10 @@ namespace TouristAttractionsJSON.Pages
                         string key = System.IO.File.ReadAllText("TouristAPIKey.txt");
 
 
-                        String jsonString = webClient.DownloadString("https://github.com/shivika24/tourism-project/blob/master/db.json");
+                        String Airportfeed = webClient.DownloadString("https://github.com/shivika24/tourism-project/blob/master/db.json");
                         JSchema schema = JSchema.Parse(System.IO.File.ReadAllText("AirportSchema.json"));
-                        JObject jsonObject = JObject.Parse(jsonString);
-                        QuickType.Welcome welcome = QuickType.Welcome.FromJson(jsonString);
+                        JObject jsonObject = JObject.Parse(Airportfeed);
+                        QuickType.Welcome welcome = QuickType.Welcome.FromJson(Airportfeed);
                         List<Item> items = new List<Item>();
                         double t;
                         string sunrise;
