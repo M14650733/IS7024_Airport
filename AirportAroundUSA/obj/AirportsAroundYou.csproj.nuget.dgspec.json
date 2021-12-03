@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\15715\\Desktop\\AirportAroundUSA\\IS7024\\IS7024-Project\\AirportAroundUSA\\AirportAroundUSA\\AirportsAroundYou.csproj": {}
+    "C:\\Users\\15715\\Desktop\\githubIS7024\\IS7024_Airport\\AirportAroundUSA\\AirportsAroundYou.csproj": {}
   },
   "projects": {
-    "C:\\Users\\15715\\Desktop\\AirportAroundUSA\\IS7024\\IS7024-Project\\AirportAroundUSA\\AirportAroundUSA\\AirportsAroundYou.csproj": {
+    "C:\\Users\\15715\\Desktop\\githubIS7024\\IS7024_Airport\\AirportAroundUSA\\AirportsAroundYou.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\15715\\Desktop\\AirportAroundUSA\\IS7024\\IS7024-Project\\AirportAroundUSA\\AirportAroundUSA\\AirportsAroundYou.csproj",
+        "projectUniqueName": "C:\\Users\\15715\\Desktop\\githubIS7024\\IS7024_Airport\\AirportAroundUSA\\AirportsAroundYou.csproj",
         "projectName": "AirportsAroundYou",
-        "projectPath": "C:\\Users\\15715\\Desktop\\AirportAroundUSA\\IS7024\\IS7024-Project\\AirportAroundUSA\\AirportAroundUSA\\AirportsAroundYou.csproj",
+        "projectPath": "C:\\Users\\15715\\Desktop\\githubIS7024\\IS7024_Airport\\AirportAroundUSA\\AirportsAroundYou.csproj",
         "packagesPath": "C:\\Users\\15715\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\15715\\Desktop\\AirportAroundUSA\\IS7024\\IS7024-Project\\AirportAroundUSA\\AirportAroundUSA\\obj\\",
+        "outputPath": "C:\\Users\\15715\\Desktop\\githubIS7024\\IS7024_Airport\\AirportAroundUSA\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\15715\\AppData\\Roaming\\NuGet\\NuGet.Config",
